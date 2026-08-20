@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOS Casa | Mais que limpeza, é cuidado</title>
+<style>
+  :root{
+    --green:#2f6b4f;
+    --dark:#17251e;
+    --light:#f4f7f2;
+    --cream:#e8dcc5;
+    --white:#fff;
+    --text:#243028;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Arial,Helvetica,sans-serif;background:var(--light);color:var(--text);line-height:1.6}
+  header{background:var(--dark);color:white;position:sticky;top:0;z-index:10}
+  nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+  .logo{font-size:28px;font-weight:900;letter-spacing:1px}
+  .logo span{color:#9bcf9d}
+  nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px}
+  .hero{background:linear-gradient(135deg,#17251e,#2f6b4f);color:white;padding:80px 20px}
+  .hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+  h1{font-size:52px;line-height:1.05;margin-bottom:18px}
+  h1 span{color:#a8d9aa}
+  .hero p{font-size:19px;max-width:650px;margin-bottom:25px}
+  .btn{display:inline-block;background:#a8d9aa;color:#17251e;padding:13px 20px;border-radius:10px;text-decoration:none;font-weight:bold}
+  .hero-card{background:white;color:var(--text);border-radius:18px;padding:28px;box-shadow:0 15px 35px #0003}
+  .hero-card h3{color:var(--green);margin-bottom:10px}
+  section{max-width:1100px;margin:auto;padding:65px 20px}
+  .title{text-align:center;margin-bottom:35px}
+  .title h2{font-size:34px;color:var(--dark)}
+  .title p{max-width:700px;margin:8px auto;color:#607066}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:white;border-radius:16px;padding:24px;box-shadow:0 5px 20px #0000000d}
+  .card .icon{font-size:30px;margin-bottom:10px}
+  .card h3{margin-bottom:8px;color:var(--green)}
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .step{background:var(--dark);color:white;padding:20px;border-radius:14px}
+  .step b{display:block;font-size:26px;color:#a8d9aa}
+  .story{background:var(--cream);border-radius:18px;padding:30px}
+  .form{background:white;border-radius:18px;padding:30px;box-shadow:0 5px 20px #0000000d}
+  label{display:block;font-weight:bold;margin:14px 0 6px}
+  input,textarea,select{width:100%;padding:12px;border:1px solid #ccd5cf;border-radius:9px;font:inherit}
+  textarea{min-height:120px;resize:vertical}
+  .submit{margin-top:18px;border:0;cursor:pointer;background:var(--green);color:white;padding:13px 20px;border-radius:9px;font-weight:bold}
+  .notice{background:#eef6ee;border-left:4px solid var(--green);padding:15px;margin-top:18px;font-size:14px}
+  .partners{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+  .partner{background:white;padding:25px;border-radius:14px;text-align:center;border:2px dashed #b8c8bc}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+  .photo{height:180px;border-radius:14px;background:#d8e3da;display:flex;align-items:center;justify-content:center;color:#52705c;font-weight:bold}
+  footer{background:var(--dark);color:white;text-align:center;padding:35px 20px}
+  footer p{color:#cbd8cf;font-size:14px;margin-top:8px}
+  @media(max-width:800px){
+    .hero-inner,.grid,.gallery,.partners{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    h1{font-size:40px}
+    nav{flex-wrap:wrap;gap:10px}
+    nav a{margin-left:8px}
+  }
+
+  .brand{display:flex;align-items:center;gap:9px;color:white}
+  .brand-mark{width:46px;height:46px;border:3px solid #a8d9aa;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;letter-spacing:-1px;transform:rotate(-3deg)}
+  .brand-name{font-size:25px;font-weight:900;letter-spacing:1.5px}
+  .brand-name:after{content:"";display:block;height:3px;background:#a8d9aa;border-radius:5px;margin-top:2px}
+  .before-after{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .scene{background:white;border-radius:18px;overflow:hidden;box-shadow:0 5px 20px #0000000d}
+  .scene h3{padding:14px 18px;background:var(--dark);color:white}
+  .room{height:250px;position:relative;background:#e8dcc5;border-bottom:1px solid #d0c3aa;overflow:hidden}
+  .floor{position:absolute;bottom:0;left:0;right:0;height:54px;background:#b99a73}
+  .wall-art{position:absolute;top:35px;left:45%;width:70px;height:52px;border:5px solid #8b6e4b;background:#f4e8d1}
+  .sofa{position:absolute;bottom:54px;left:13%;width:145px;height:55px;background:#6e8a72;border-radius:12px 12px 4px 4px}
+  .sofa:before{content:"";position:absolute;left:12px;right:12px;top:-24px;height:28px;background:#78947b;border-radius:10px}
+  .table{position:absolute;bottom:54px;right:15%;width:80px;height:42px;background:#8a6545;border-radius:6px}
+  .table:after{content:"";position:absolute;left:12px;right:12px;bottom:-35px;height:35px;border-left:5px solid #6f5038;border-right:5px solid #6f5038}
+  .plant{position:absolute;bottom:54px;right:5%;width:28px;height:45px;background:#6d8f63;border-radius:50% 50% 20% 20%}
+  .plant:after{content:"";position:absolute;bottom:-12px;left:3px;width:22px;height:16px;background:#a36f45;border-radius:3px}
+  .mess{position:absolute;width:32px;height:16px;background:#a65e5e;border-radius:3px;transform:rotate(20deg)}
+  .mess.one{bottom:70px;left:35%}.mess.two{bottom:85px;left:57%;transform:rotate(-15deg)}
+  .mess.three{bottom:65px;left:70%;transform:rotate(8deg)}.mess.four{bottom:105px;left:23%;transform:rotate(-28deg)}
+  .clean-room .mess{display:none}
+  .clean-room .wall-art{top:27px}
+  .caption{padding:15px 18px;color:#5e6d64}
+  .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .quote{background:white;border-radius:16px;padding:24px;box-shadow:0 5px 20px #0000000d;border-top:4px solid #6f9d76}
+  .quote p{font-style:italic}
+  .quote strong{display:block;margin-top:15px;color:var(--green)}
+  .sample-note{font-size:12px;color:#68766d;margin-top:18px;text-align:center}
+  @media(max-width:800px){
+    .before-after,.testimonials{grid-template-columns:1fr}
+    .room{height:220px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand"><div class="brand-mark">SOS</div><div class="brand-name">CASA</div></div>
+    <div>
+      <a href="#sobre">Sobre</a>
+      <a href="#como">Como funciona</a>
+      <a href="#inscricao">Quero participar</a>
+      <a href="#parceiros">Parceiros</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Mais que limpeza.<br><span>É cuidado.</span></h1>
+      <p>
+        A SOS Casa é um projeto que une organização, limpeza, acolhimento,
+        produção de conteúdo e apoio profissional para ajudar pessoas que
+        estão enfrentando dificuldades para cuidar do próprio lar.
+      </p>
+      <a class="btn" href="#inscricao">Quero contar minha história</a>
+    </div>
+    <div class="hero-card">
+      <h3>O que fazemos?</h3>
+      <p>Recebemos histórias, conhecemos a situação da casa e, quando o caso é selecionado, nossa equipe realiza uma transformação gratuita e registra a experiência para nossas redes sociais, sempre com autorização.</p>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="title">
+    <h2>Sobre a SOS Casa</h2>
+    <p>Nosso objetivo é mostrar que cuidar do ambiente também pode ser um primeiro passo para recuperar a sensação de cuidado e dignidade.</p>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="icon">🧹</div><h3>Organização</h3><p>Uma equipe ajuda a reorganizar e limpar o ambiente de forma respeitosa.</p></div>
+    <div class="card"><div class="icon">🎥</div><h3>Histórias reais</h3><p>Produzimos conteúdos para conscientizar e mostrar histórias de transformação, com consentimento.</p></div>
+    <div class="card"><div class="icon">🧠</div><h3>Apoio profissional</h3><p>O projeto prevê a participação de profissional de Psicologia habilitado, dentro dos limites de sua atuação.</p></div>
+  </div>
+</section>
+
+<section id="como">
+  <div class="title">
+    <h2>Como funciona?</h2>
+    <p>Do primeiro contato até a transformação.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><b>01</b>Você conta sua história pelo formulário.</div>
+    <div class="step"><b>02</b>Envia informações e fotos do ambiente.</div>
+    <div class="step"><b>03</b>Nossa equipe analisa as inscrições.</div>
+    <div class="step"><b>04</b>Se selecionado, combinamos a visita e a autorização de imagem.</div>
+    <div class="step"><b>05</b>Realizamos a transformação e produzimos o conteúdo.</div>
+  </div>
+  <div class="notice">
+    <strong>Importante:</strong> o envio de uma inscrição não garante que a pessoa será selecionada.
+    As fotos e histórias devem ser tratadas com privacidade e somente utilizadas publicamente com autorização.
+  </div>
+</section>
+
+<section>
+  <div class="story">
+    <h2>Por que fazemos isso?</h2>
+    <p>Existem pessoas que passam por períodos difíceis e acabam perdendo a energia para manter a própria casa organizada. A SOS Casa quer levar ajuda sem julgamento, transformar o ambiente e contar histórias que incentivem outras pessoas a procurar apoio.</p>
+  </div>
+</section>
+
+
+<section>
+  <div class="title">
+    <h2>Veja a transformação</h2>
+    <p>Uma representação de como o ambiente pode mudar com organização, cuidado e acolhimento.</p>
+  </div>
+  <div class="before-after">
+    <div class="scene">
+      <h3>ANTES — ambiente sobrecarregado</h3>
+      <div class="room">
+        <div class="floor"></div><div class="wall-art"></div><div class="sofa"></div><div class="table"></div><div class="plant"></div>
+        <div class="mess one"></div><div class="mess two"></div><div class="mess three"></div><div class="mess four"></div>
+      </div>
+      <div class="caption">Objetos espalhados e um espaço difícil de utilizar. Sem julgamentos: primeiro ouvimos a história.</div>
+    </div>
+    <div class="scene">
+      <h3>DEPOIS — ambiente reorganizado</h3>
+      <div class="room clean-room">
+        <div class="floor"></div><div class="wall-art"></div><div class="sofa"></div><div class="table"></div><div class="plant"></div>
+        <div class="mess one"></div><div class="mess two"></div><div class="mess three"></div><div class="mess four"></div>
+      </div>
+      <div class="caption">Um ambiente mais organizado e funcional, construído com a pessoa e respeitando seus limites.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="title">
+    <h2>Relatos de quem participou</h2>
+    <p>Histórias de transformação podem aparecer aqui conforme o projeto realizar seus primeiros atendimentos.</p>
+  </div>
+  <div class="testimonials">
+    <div class="quote">
+      <p>“Depois de ver minha casa organizada, senti que conseguia começar a organizar outras partes da minha rotina também. Voltei a me concentrar melhor nas minhas tarefas.”</p>
+      <strong>— Relato ilustrativo, participante A</strong>
+    </div>
+    <div class="quote">
+      <p>“O mais importante foi ninguém me julgar. Eles ouviram minha história e me ajudaram a dar o primeiro passo para cuidar novamente do meu espaço.”</p>
+      <strong>— Relato ilustrativo, participante B</strong>
+    </div>
+    <div class="quote">
+      <p>“A transformação da casa me deu uma sensação de recomeço. Aos poucos comecei a retomar coisas que tinha deixado de lado.”</p>
+      <strong>— Relato ilustrativo, participante C</strong>
+    </div>
+  </div>
+  <p class="sample-note">Os relatos acima são exemplos para o protótipo do site. Quando houver participantes reais, substituam-nos apenas por depoimentos autorizados.</p>
+</section>
+
+<section id="inscricao">
+  <div class="title">
+    <h2>Quero participar</h2>
+    <p>Conte um pouco sobre sua situação. Nossa equipe entrará em contato caso sua inscrição seja selecionada.</p>
+  </div>
+  <div class="form">
+    <form onsubmit="enviarFormulario(event)">
+      <label>Nome</label>
+      <input required type="text" placeholder="Seu nome">
+
+      <label>Contato</label>
+      <input required type="text" placeholder="Telefone ou e-mail">
+
+      <label>Conte sua história</label>
+      <textarea required placeholder="Explique brevemente o que está acontecendo e por que gostaria de receber ajuda."></textarea>
+
+      <label>Como está o ambiente?</label>
+      <textarea placeholder="Descreva a situação da casa, cômodo ou espaço."></textarea>
+
+      <label>Fotos do ambiente</label>
+      <input type="file" accept="image/*" multiple>
+
+      <div class="notice">
+        Não envie documentos, senhas ou informações desnecessárias. Antes de publicar qualquer história,
+        a SOS Casa deverá obter autorização adequada de imagem e uso do relato.
+      </div>
+
+      <button class="submit" type="submit">Enviar inscrição</button>
+    </form>
+  </div>
+</section>
+
+<section id="parceiros">
+  <div class="title">
+    <h2>Seja um parceiro</h2>
+    <p>Marcas e profissionais podem apoiar o projeto com produtos, serviços, divulgação ou patrocínio.</p>
+  </div>
+  <div class="partners">
+    <div class="partner">🧴<br><strong>Produtos de limpeza</strong></div>
+    <div class="partner">🧠<br><strong>Psicologia</strong></div>
+    <div class="partner">🏥<br><strong>Convênios e saúde</strong></div>
+    <div class="partner">📣<br><strong>Publicidade</strong></div>
+  </div>
+</section>
+
+<section>
+  <div class="title">
+    <h2>Nossas transformações</h2>
+    <p>Espaço reservado para fotos e vídeos dos trabalhos realizados.</p>
+  </div>
+  <div class="gallery">
+    <div class="photo">Foto do projeto — ANTES</div>
+    <div class="photo">Foto do projeto — DURANTE</div>
+    <div class="photo">Foto do projeto — DEPOIS</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="brand"><div class="brand-mark">SOS</div><div class="brand-name">CASA</div></div>
+  <p>Transformamos histórias. Limpamos espaços. Cuidamos de pessoas.</p>
+  <p>Instagram • TikTok • Facebook • Contato</p>
+</footer>
+
+<script>
+function enviarFormulario(event){
+  event.preventDefault();
+  alert("O formulário está pronto visualmente, mas ainda precisa ser conectado a um serviço de recebimento de formulários para realmente enviar as inscrições.");
+}
+</script>
+
+</body>
+</html>
